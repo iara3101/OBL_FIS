@@ -1,0 +1,17 @@
+{
+  "name": "dominio",
+  "version": "1.0.0",
+  "description": "MisGastos dominio",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "testWindows": "node --experimental-vm-modules node_modules/jest/bin/jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^26.6.3"
+  }
+}
