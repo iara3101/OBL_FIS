@@ -1,0 +1,80 @@
+@use "@material/theme" with (
+  $primary: #00bcd4,
+  $secondary: #f44336,
+  $background: #c7c7c7,
+);
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use "@material/drawer";
+@use "@material/list";
+@use "@material/tab-bar/mdc-tab-bar";
+@use "@material/tab-scroller/mdc-tab-scroller";
+@use "@material/tab-indicator/mdc-tab-indicator";
+@use "@material/tab/mdc-tab";
+@use "@material/icon-button";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+@use "@material/card";
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/select/styles";
+@use "@material/snackbar/mdc-snackbar";
+
+@include card.core-styles;
+@include textfield.core-styles;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0px auto;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.mdc-top-app-bar {
+  z-index: 7;
+  @include icon-button.core-styles;
+}
+
+section {
+  text-align: center;
+}
+
+.content {
+  margin: 10rem auto;
+  padding-bottom: 20rem;
+  text-align: center;
+}
+
+.sample-content--hidden {
+  display: none;
+}
+
+.mdc-tab {
+    background-color: #67daff;
+}
+
+.mdc-tab__content .mdc-tab__text-label {
+    color: black;
+}
+
+.mdc-text-field {
+    margin: 1rem auto;
+}
+
+.button {
+  margin-top: 1rem;
+}
+
+.mdc-snackbar__actions .mdc-button__label {
+  color: #67daff;
+}
