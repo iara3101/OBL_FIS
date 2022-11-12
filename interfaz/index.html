@@ -9,9 +9,13 @@
 <body>
 
   <header class="mdc-top-app-bar">
-    <div class="mdc-top-app-bar__row">
+    <div class="mdc-top-app-bar__row"></div>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <span class="mdc-top-app-bar__title">Cartelera</span>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">home</button>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">payments</button>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">monitoring</button>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">person</button>
+        <span class="mdc-top-app-bar__title">Apuestas Mundial</span>
       </section>
     </div>
 
@@ -22,7 +26,7 @@
 
             <button class="mdc-tab mdc-tab--active sample-content-tab" role="tab" aria-selected="true" tabindex="0">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Películas</span>
+                <span class="mdc-tab__text-label">Grupos Privados</span>
               </span>
               <span class="mdc-tab-indicator mdc-tab-indicator--active">
                 <span
@@ -33,7 +37,7 @@
 
             <button class="mdc-tab sample-content-tab" role="tab" aria-selected="false" tabindex="1">
               <span class="mdc-tab__content">
-                <span class="mdc-tab__text-label">Agregar película</span>
+                <span class="mdc-tab__text-label">Grupos Publicos</span>
               </span>
               <span class="mdc-tab-indicator">
                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -48,101 +52,58 @@
 
   <main class="mdc-top-app-bar--fixed-adjust">
     <section class="content">
-      <h1>Películas</h1>
-    </section>
-    <section class="content sample-content--hidden">
-      <h1>Próximamente</h1>
-      <label class="mdc-text-field mdc-text-field--outlined" id="title">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label">Título</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input type="text" class="mdc-text-field__input" aria-labelledby="title">
-      </label>
-      <label class="mdc-text-field mdc-text-field--outlined" id="year">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span class="mdc-floating-label">Año</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <input type="number" class="mdc-text-field__input" aria-labelledby="year">
-      </label>
-      <div class="mdc-select mdc-select--outlined">
-        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-          <span class="mdc-notched-outline">
-            <span class="mdc-notched-outline__leading"></span>
-            <span class="mdc-notched-outline__notch">
-              <span id="outlined-select-label" class="mdc-floating-label">Género</span>
-            </span>
-            <span class="mdc-notched-outline__trailing"></span>
-          </span>
-          <span class="mdc-select__selected-text-container">
-            <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-          </span>
-          <span class="mdc-select__dropdown-icon">
-            <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-              <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
-                points="7 10 12 15 17 10">
-              </polygon>
-              <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
-                points="7 15 12 10 17 15">
-              </polygon>
-            </svg>
-          </span>
-        </div>
+      <h1>Grupos de apuestas privados</h1>
+      
+      <div class="mdc-touch-target-wrapper"> <!--TODO: Colocar el boton al costado-->
+        <section>
+          <button class="mdc-fab mdc-fab--mini mdc-fab--touch">
+            <div class="mdc-fab__ripple"></div>
+            <span class="material-icons mdc-fab__icon">group</span>
+            <div class="mdc-fab__touch"></div>
+          </button>
+        </section>
+        <section>
+          <button class="mdc-fab mdc-fab--mini mdc-fab--touch" id="botonCrear">
+            <div class="mdc-fab__ripple"></div>
+            <span class="material-icons mdc-fab__icon">add</span>
+            <div class="mdc-fab__touch"></div>
+          </button>
+        </section>
+      </div>
 
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-          <ul class="mdc-list" role="listbox" aria-label="Genre picker listbox">
-            <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option">
-              <span class="mdc-list-item__ripple"></span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Aventura" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Aventura
-              </span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Drama" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Drama
-              </span>
-            </li>
-            <li class="mdc-list-item" aria-selected="false" data-value="Comedia" role="option">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text">
-                Comedia
-              </span>
-            </li>
-          </ul>
+      <!-- Intento de card -->
+      <div class="mdc-card mdc-card--outlined">
+        <!-- ... content ... -->
+        <div class="mdc-card__primary-action">
+          <div class="mdc-card__media mdc-card__media--square">
+            <div class="mdc-card__media-content">Title</div>
+          </div>
+          <!-- ... additional primary action content ... -->
+          <div class="mdc-card__ripple"></div>
+        </div>
+        <div class="mdc-card__actions">
+          <div class="mdc-card__action-buttons">
+            <button class="mdc-button mdc-card__action mdc-card__action--button">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Action 1</span>
+            </button>
+            <button class="mdc-button mdc-card__action mdc-card__action--button">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Action 2</span>
+            </button>
+          </div>
+          <div class="mdc-card__action-icons">
+            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
+            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="button">
-        <button class="mdc-button mdc-button--raised" id="addButton">
-          <span class="mdc-button__label">AGREGAR</span>
-        </button>
-      </div>
+
     </section>
+    
   </main>
 
-  <aside class="mdc-snackbar">
-    <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
-      <div class="mdc-snackbar__label" aria-atomic="false">
-      </div>
-      <div class="mdc-snackbar__actions" aria-atomic="true">
-        <button type="button" class="mdc-button mdc-snackbar__action">
-          <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">Cerrar</span>
-        </button>
-      </div>
-    </div>
-  </aside>
+  
 
 </body>
 <script src="bundle.js" async></script>

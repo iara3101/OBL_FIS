@@ -7,6 +7,9 @@ import {MDCSnackbar} from '@material/snackbar';
 import ListaPeliculas from '../../dominio/lista-peliculas.mjs';
 import Pelicula from '../../dominio/pelicula.mjs';
 
+const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
+// Este const es delboton agregar 
+
 const listaPeliculas = new ListaPeliculas();
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
@@ -44,3 +47,9 @@ addButton.listen('click', () => {
     console.log(peliculas);
   }
 })
+
+// Esto es el JS del boton Crear
+const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+  return new MDCRipple(el);
+});

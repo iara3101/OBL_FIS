@@ -23,6 +23,9 @@
 @use "@material/menu/mdc-menu";
 @use "@material/select/styles";
 @use "@material/snackbar/mdc-snackbar";
+@use "@material/fab";
+
+@include fab.core-styles;
 
 @include card.core-styles;
 @include textfield.core-styles;
@@ -77,4 +80,18 @@ section {
 
 .mdc-snackbar__actions .mdc-button__label {
   color: #67daff;
+}
+
+.my-card-content {
+  padding: 16px;
+}
+
+.my-card {
+  height: 350px;
+  width: 350px;
+  
+}
+
+.mdc-touch-target-wrapper{
+  float: right;
 }
