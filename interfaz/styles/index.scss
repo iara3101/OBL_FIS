@@ -35,6 +35,7 @@ html {
 }
 
 body {
+  height: 100vh;
   font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0px auto;
 }
@@ -86,12 +87,15 @@ section {
   padding: 16px;
 }
 
-.my-card {
-  height: 350px;
-  width: 350px;
+.miCard{
+  display: none;
+  margin: auto;
+  height: 200px;
+  width: 200px;
   
 }
 
 .mdc-touch-target-wrapper{
   float: right;
 }
+

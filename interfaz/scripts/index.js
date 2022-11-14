@@ -26,30 +26,16 @@ tabBar.listen("MDCTabBar:activated", (activatedEvent) => {
   });
 });
 
-const textFieldTitle = new MDCTextField(document.getElementById('title'));
-const textFieldYear = new MDCTextField(document.getElementById('year'));
-const selectGenre = new MDCSelect(document.querySelector('.mdc-select'));
 
-const addButton = new MDCRipple(document.getElementById('addButton'));
-addButton.listen('click', () => {
-  let title = textFieldTitle.value;
-  let year = textFieldYear.value;
-  let genre = selectGenre.value;
-  try {
-    let newPelicula = new Pelicula(title, genre, year);
-    listaPeliculas.agregar(newPelicula);
-  } catch (error) {
-    const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-    snackbar.labelText = error.message;
-    snackbar.open();
-  } finally {
-    let peliculas = listaPeliculas.getPeliculas();
-    console.log(peliculas);
-  }
-})
 
 // Esto es el JS del boton Crear
 const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
 const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
   return new MDCRipple(el);
 });
+
+
+document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
+function hacerDisplay(){
+ document.getElementById('idCard').style.display="block";
+}
