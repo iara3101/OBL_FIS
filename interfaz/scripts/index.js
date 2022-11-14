@@ -6,6 +6,19 @@ import { MDCSelect } from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
 import ListaPeliculas from '../../dominio/lista-peliculas.mjs';
 import Pelicula from '../../dominio/pelicula.mjs';
+import {MDCFormField} from '@material/form-field';
+import {MDCCheckbox} from '@material/checkbox';
+
+//para mostrar la card luego del boton clickeado
+document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
+function hacerDisplay(){
+ document.getElementById('idCard').style.display="block";
+}
+
+
+const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
+const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+formField.input = checkbox;
 
 const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
 // Este const es delboton agregar 
@@ -14,6 +27,10 @@ const listaPeliculas = new ListaPeliculas();
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
+
+
+const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+
 
 const tabBar = new MDCTabBar(document.querySelector(".mdc-tab-bar"));
 tabBar.listen("MDCTabBar:activated", (activatedEvent) => {
@@ -34,8 +51,3 @@ const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
   return new MDCRipple(el);
 });
 
-
-document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
-function hacerDisplay(){
- document.getElementById('idCard').style.display="block";
-}

@@ -3,6 +3,7 @@
   $secondary: #f44336,
   $background: #c7c7c7,
 );
+
 @use '@material/button/mdc-button';
 @use '@material/button';
 @use "@material/drawer";
@@ -24,11 +25,15 @@
 @use "@material/select/styles";
 @use "@material/snackbar/mdc-snackbar";
 @use "@material/fab";
+@use "@material/checkbox";
+@use "@material/form-field";
 
 @include fab.core-styles;
 
 @include card.core-styles;
 @include textfield.core-styles;
+@include checkbox.core-styles;
+@include form-field.core-styles;
 
 html {
   scroll-behavior: smooth;
@@ -83,6 +88,10 @@ section {
   color: #67daff;
 }
 
+.mdc-card__actions{
+  margin: auto;
+}
+
 .my-card-content {
   padding: 16px;
 }
@@ -90,8 +99,8 @@ section {
 .miCard{
   display: none;
   margin: auto;
-  height: 200px;
-  width: 200px;
+  height: 60%; //capaz le saco altura desp
+  width: 60%;
   
 }
 
@@ -99,3 +108,7 @@ section {
   float: right;
 }
 
+.mdc-card__media-content{
+  display: flex;
+  flex-direction: column;
+}

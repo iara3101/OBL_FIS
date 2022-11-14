@@ -9,7 +9,7 @@
 <body>
 
   <header class="mdc-top-app-bar">
-    <div class="mdc-top-app-bar__row"></div>
+    <!--<div class="mdc-top-app-bar__row"></div> -->
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">home</button>
         <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">payments</button>
@@ -51,9 +51,7 @@
   </header>
 
   <main class="mdc-top-app-bar--fixed-adjust">
-    <section class="content">
-      <h1>Grupos de apuestas privados</h1>
-      
+    <section class="content">    
       <div class="mdc-touch-target-wrapper"> <!--TODO: Colocar el boton al costado-->
         <section>
           <button class="mdc-fab mdc-fab--mini mdc-fab--touch">
@@ -71,26 +69,122 @@
         </section>
       </div>
 
-      <!-- Intento de card -->
+      <!-- card -->
       <div class ="miCard" id="idCard">
         <div class="mdc-card mdc-card--outlined">
           <!-- ... content ... -->
           <div class="mdc-card__primary-action">
             <div class="mdc-card__media mdc-card__media--square">
-              <div class="mdc-card__media-content">Title</div>
+              <div class="mdc-card__media-content">
+                  <h2>Crear Grupo</h2>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label" id="nombreNuevo">Nombre del Grupo</span> <!-- ojo porque cambie el id por defecto al de la plantilla-->
+                    <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+
+                <div id="idContenedorDeChecks1">
+                  Tipo de grupo:
+                    <div class="mdc-form-field">
+                      <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkPrivado"/>
+                        <div class="mdc-checkbox__background">
+                          <svg class="mdc-checkbox__checkmark"
+                               viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                          </svg>
+                          <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                      </div>
+                      <label for="checkbox-1">Privado</label> 
+                    </div>
+  
+                    <div class="mdc-form-field">
+                      <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkPublico"/>
+                        <div class="mdc-checkbox__background">
+                          <svg class="mdc-checkbox__checkmark"
+                               viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                          </svg>
+                          <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                      </div>
+                      <label for="checkbox-1">Publico</label> 
+                    </div>
+                  </div>
+
+                  <div id="idContenedorDeChecks2">
+                    Tipo de apuesta:
+                    <div class="mdc-form-field">
+                      <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkApuestaAmistosa"/>
+                        <div class="mdc-checkbox__background">
+                          <svg class="mdc-checkbox__checkmark"
+                               viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                          </svg>
+                          <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                      </div>
+                      <label for="checkbox-1">Amistoso</label> 
+                    </div>
+  
+                    <div class="mdc-form-field">
+                      <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               id="checkApuestaPrivada"/>
+                        <div class="mdc-checkbox__background">
+                          <svg class="mdc-checkbox__checkmark"
+                               viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                          </svg>
+                          <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                      </div>
+                      <label for="checkbox-2">Apuesta Monetaria</label> 
+                    </div>
+  
+
+                  </div>
+
+
+              </div>
             </div>
             <!-- ... additional primary action content ... -->
-            <div class="mdc-card__ripple"></div>
+            <div class="mdc-card__ripple">
+        
+            </div>
           </div>
           <div class="mdc-card__actions">
             <div class="mdc-card__action-buttons">
-              <button class="mdc-button mdc-card__action mdc-card__action--button">
-                <div class="mdc-button__ripple"></div>
-                <span class="mdc-button__label">Action 1</span>
+              <button class="mdc-button mdc-card__action mdc-card__action--button" id="botonCancelar">
+               <!-- <div class="mdc-button__ripple"></div> -->
+                <span class="mdc-button__label">Cancelar</span>
               </button>
-              <button class="mdc-button mdc-card__action mdc-card__action--button">
-                <div class="mdc-button__ripple"></div>
-                <span class="mdc-button__label">Action 2</span>
+              <button class="mdc-button mdc-card__action mdc-card__action--button" id="botonCrearConfir">
+                <!--<div class="mdc-button__ripple"></div>-->
+                <span class="mdc-button__label">Crear</span>
               </button>
             </div>
           </div>
