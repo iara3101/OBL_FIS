@@ -1,7 +1,7 @@
 class sistema{
     constructor(){
         this.idSistemaUsuario = 1;
-        this.idSistemaGrupo;
+        this.idSistemaGrupo = 1;
         this.listaEquipos = [];
         this.listaUsuarios = [];
         this.listaGrupos = [];
