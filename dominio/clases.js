@@ -9,15 +9,15 @@ class sistema{
     agregarEquipo(equipo, lista){
         lista.push(equipo);
     }
-    agregarUsuario(usuario, lista, id){
-        usuario.idUsuario = id;
+    agregarUsuario(usuario, lista){
+        usuario.idUsuario = this.idSistemaUsuario;
         lista.push(usuario);
         this.idSistemaUsuario ++;
     }
-    agregarGrupo(grupo, lista, id){
-        grupo.idGrupo = id;
+    agregarGrupo(grupo, lista){
+        grupo.idGrupo = this.idSistemaGrupo;
         lista.push(grupo);
-        idSistemaGrupo ++;
+        this.idSistemaGrupo ++;
     }
     darEquipo(nombreEquipo){
         let control = true;
