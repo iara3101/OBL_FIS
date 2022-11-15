@@ -10,12 +10,10 @@ class sistema{
         lista.push(equipo);
     }
     agregarUsuario(usuario, lista){
-        usuario.idUsuario = this.idSistemaUsuario;
         lista.push(usuario);
         this.idSistemaUsuario ++;
     }
     agregarGrupo(grupo, lista){
-        grupo.idGrupo = this.idSistemaGrupo;
         lista.push(grupo);
         this.idSistemaGrupo ++;
     }
