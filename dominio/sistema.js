@@ -14,15 +14,15 @@ export default class sistema{
     agregarEquipo(equipo){
         this.listaEquipos.push(equipo);
     }
-    agregarUsuario(usuario){
+    agregarUsuario(us){
         let control = true;
         for(let i=0; i<lista.length && control; i++){
-            if((usuario.idUsuario == this.listaUsuarios[i].idUsuario) && (usuario.nombre == this.listaUsuarios[i].nombre)){
+            if((us.idUsuario == this.listaUsuarios[i].idUsuario) && (us.nombre == this.listaUsuarios[i].nombre)){
                 control = false;
             }
         }
         if(control){
-            lista.push(usuario);
+            lista.push(us);
             this.idSistemaUsuario ++;
         } else {
             alert("Ya hay un usuario registrado con ese nombre y/o id");
@@ -155,8 +155,8 @@ export default class sistema{
         this.listaGrupos.push(nuevoGrupo);
         return nuevoGrupo;
     }
-    crearApuesta(e1, e2, usuario){
-        let nuevaApuesta = new apuesta(e1, e2, dia.getDate(), usuario);
+    crearApuesta(e1, e2, us){
+        let nuevaApuesta = new apuesta(e1, e2, dia.getDate(), us);
         return nuevaApuesta;
     }
     registrarApuesta(grupo, apuesta){
