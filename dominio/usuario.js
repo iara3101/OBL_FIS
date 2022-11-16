@@ -4,6 +4,6 @@ export default class usuario{
         this.idUsuario = unaIdUsuario;
     }
     toString(){
-        return "Nombre: " + this.nombre + "; id: " + this.id;
+        return "Nombre: " + this.nombre + "; id: " + this.idUsuario;
     }
 }

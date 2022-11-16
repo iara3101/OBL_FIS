@@ -16,21 +16,21 @@ export default class sistema{
     }
     agregarUsuario(us){
         let control = true;
-        for(let i=0; i<lista.length && control; i++){
+        for(let i=0; i<this.listaUsuarios.length && control; i++){
             if((us.idUsuario == this.listaUsuarios[i].idUsuario) && (us.nombre == this.listaUsuarios[i].nombre)){
                 control = false;
             }
         }
         if(control){
-            lista.push(us);
-            this.idSistemaUsuario ++;
+            this.listaUsuarios.push(us);
+            this.idSistemaUsuario++;
         } else {
             alert("Ya hay un usuario registrado con ese nombre y/o id");
         }
     }
     agregarGrupo(grupo){
         this.listaGrupos.push(grupo);
-        this.idSistemaGrupo ++;
+        this.idSistemaGrupo++;
     }
     darEquipo(nombreEquipo){
         let control = true;
@@ -66,7 +66,7 @@ export default class sistema{
         let control = true;
         let aux = 0;
         for(let i=0; i<this.listaGrupos.length && control; i++){
-            if(this.idGrupo == id){
+            if(this.listaGrupos[i].idGrupo == id){
                 control = false;
                 aux = i;
             }
@@ -78,23 +78,23 @@ export default class sistema{
         }
     }
     agregarUsuariosPrueba(){ //seran un total de 6 usuarios, incuyendo al operador
-        let usuario1 = new usuario("Mateo Arias", miSistema.idSistemaUsuario); //su id es 1, es el "operador"
-        miSistema.agregarUsuario(usuario1); //caada vez que llamo a agregarUsuario, la id de usuario se incrementa
-        let usuario2 = new usuario("Santiago Lopez", miSistema.idSistemaUsuario); //su id es 2
-        miSistema.agregarUsuario(usuario2);
-        let usuario3 = new usuario("Iara Vieira", miSistema.idSistemaUsuario); //su id es 3
-        miSistema.agregarUsuario(usuario3);
-        let usuario4 = new usuario("Maria Martinez", miSistema.idSistemaUsuario); //su id es 4
-        miSistema.agregarUsuario(usuario4);
-        let usuario5 = new usuario("Enrique Torres", miSistema.idSistemaUsuario); //su id es 5
-        miSistema.agregarUsuario(usuario5);
-        let usuario6 = new usuario("Ismael De Leon", miSistema.idSistemaUsuario); //su id es 6
-        miSistema.agregarUsuario(usuario6);
+        let usuario1 = new usuario("Mateo Arias", this.idSistemaUsuario); //su id es 1, es el "operador"
+        this.agregarUsuario(usuario1); //caada vez que llamo a agregarUsuario, la id de usuario se incrementa
+        let usuario2 = new usuario("Santiago Lopez", this.idSistemaUsuario); //su id es 2
+        this.agregarUsuario(usuario2);
+        let usuario3 = new usuario("Iara Vieira", this.idSistemaUsuario); //su id es 3
+        this.agregarUsuario(usuario3);
+        let usuario4 = new usuario("Maria Martinez", this.idSistemaUsuario); //su id es 4
+        this.agregarUsuario(usuario4);
+        let usuario5 = new usuario("Enrique Torres", this.idSistemaUsuario); //su id es 5
+        this.agregarUsuario(usuario5);
+        let usuario6 = new usuario("Ismael De Leon", this.idSistemaUsuario); //su id es 6
+        this.agregarUsuario(usuario6);
     }
     agregarEquipos(){
         let equipos = [];
         for(let i=0; i<31; i++){
-            equipos.push();
+            equipos.push("");
         }
         equipos[0] = "Alemania";
         equipos[1] = "Catar";
@@ -130,7 +130,7 @@ export default class sistema{
         equipos[31] = "Uruguay";
         for(let i=0; i<equipos.length; i++){
             let aux = new equipo(equipos[i]);
-            miSistema.agregarEquipo(aux);
+            this.agregarEquipo(aux);
         }
     }
     crearGrupoPrueba(){
