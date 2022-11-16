@@ -11,9 +11,6 @@ export default class sistema{
         this.listaUsuarios = [];
         this.listaGrupos = [];
     }
-    agregarEquipo(equipo){
-        this.listaEquipos.push(equipo);
-    }
     agregarUsuario(us){
         let control = true;
         for(let i=0; i<this.listaUsuarios.length && control; i++){
@@ -29,8 +26,18 @@ export default class sistema{
         }
     }
     agregarGrupo(grupo){
-        this.listaGrupos.push(grupo);
-        this.idSistemaGrupo++;
+        let control = true;
+        for(let i=1; i<this.listaGrupos.length && control; i++){
+            if(this.listaGrupos[i].nombre == grupo.nombre){
+                control = false;
+            }
+        }
+        if(control){
+            this.listaGrupos.push(grupo);
+            this.idSistemaGrupo++;
+        } else {
+            alert("Ya existe un grupo con ese nombre");
+        }
     }
     darEquipo(nombreEquipo){
         let control = true;
