@@ -10,10 +10,10 @@ import sistema from '../../dominio/sistema.js';
 import {MDCFormField} from '@material/form-field';
 import {MDCCheckbox} from '@material/checkbox';
 
+let miSistema = new sistema();
 window.addEventListener("load", inicio);
 function inicio(){
   console.log("entra");
-  let miSistema = new sistema();
   miSistema.agregarEquipos();
   miSistema.agregarUsuariosPrueba();
   miSistema.crearGrupoPrueba();
@@ -33,6 +33,19 @@ function sacarDisplay(){
  document.getElementById('idCard').style.display="none";
 }
 
+//para crear el grupo
+document.getElementById('botonCrearConfir').addEventListener('click',crearGrupo);
+function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
+   let nombreGr =document.getElementById("nombreNuevo").value;
+   let tipoPrivado= document.getElementById("checkPrivado").checked;
+   //let tipoPublico= document.getElementById("checkPublico").checked;
+   let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
+   //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
+   miSistema.crearGrupoVacio(nombreGr,tipoPrivado,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+   document.getElementById('idCard').style.display="none";
+   alert("Grupo creado!!")
+
+}
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
 const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
