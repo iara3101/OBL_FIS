@@ -49,25 +49,12 @@ function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
 }
 
-
-const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
-const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
-formField.input = checkbox;
-
-const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
 // Este const es delboton agregar 
 
 //const listaPeliculas = new ListaPeliculas();
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
-
-
-const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
-
-
-
-const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
 
 const tabBar = new MDCTabBar(document.querySelector(".mdc-tab-bar"));
