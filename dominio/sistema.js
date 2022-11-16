@@ -139,16 +139,18 @@ export default class sistema{
         grupoPrueba.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
         grupoPrueba.listaIntegrantes = [this.listaUsuarios[0], this.listaUsuarios[1], this.listaUsuarios[2]];
+        grupoPrueba.tipoGrupo = true;
         grupoPrueba.tipo = true;
         grupoPrueba.listaApuestas = [];
         grupoPrueba.fecha = dia.getDate();
         grupoPrueba.admin = this.listaUsuarios[0];
     }
-    crearGrupoVacio(nombre, unTipo){
+    crearGrupoVacio(nombre, unTipo, unTipo2){
         let nuevoGrupo = new grupo();
         nuevoGrupo.nombreGrupo = nombre;
         nuevoGrupo.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
+        nuevoGrupo.tipoGrupo = unTipo2;
         nuevoGrupo.tipo = unTipo;
         nuevoGrupo.listaApuestas = [];
         nuevoGrupo.listaIntegrantes = [this.listaUsuarios[0]];
@@ -170,6 +172,19 @@ export default class sistema{
         }
         if(control){
             grupo.listaApuestas.push(apuesta);
+        }
+    }
+    agregarUsuarioAlGrupo(us, gr){
+        let control = true;
+        for(let i=0; i<gr.listaIntegrantes.length && control; i++){
+            if(gr.listaIntegrantes[i].idUsuario == us.idUsuario){
+                control = false; //el usuario ya esta en el grupo
+            }
+        }
+        if(control){
+            gr.listaIntegrantes.push(us);
+        } else {
+            alert(us.toString() + " ya es un integrante de este grupo");
         }
     }
 }
