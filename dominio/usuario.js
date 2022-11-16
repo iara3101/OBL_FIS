@@ -1,25 +1,9 @@
-class Usuario{
-    constructor(unNombre,unaEdad){
-        this.nombre=unNombre;
-        this.edad=unaEdad;
-        this.puntaje=0;
+export default class usuario{
+    constructor(nombreUsuario, unaIdUsuario){
+        this.nombre = nombreUsuario;
+        this.idUsuario = unaIdUsuario;
     }
-
-
-    getNombre(){
-        return this.nombre;
+    toString(){
+        return "Nombre: " + this.nombre + "; id: " + this.id;
     }
-
-    getEdad(){
-        return this.edad;
-    }
-
-    getIdUsuario(){
-        return this.idUsuario;
-    }
-
-    getPuntaje(){
-        return this.getPuntaje;
-    }
-
 }

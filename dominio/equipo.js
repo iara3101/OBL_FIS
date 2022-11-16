@@ -1,4 +1,4 @@
-class Equipo{
+export default class equipo{
     constructor(unNombre){
         this.nombreEquipo = unNombre;
     }
