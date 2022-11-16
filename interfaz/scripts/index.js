@@ -15,6 +15,12 @@ function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
 }
 
+// para dejar de mostrar la card cuando cancela
+document.getElementById('botonCancelar').addEventListener('click',sacarDisplay);
+function sacarDisplay(){
+ document.getElementById('idCard').style.display="none";
+}
+
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
 const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
