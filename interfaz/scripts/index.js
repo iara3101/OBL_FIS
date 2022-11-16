@@ -4,14 +4,26 @@ import { MDCTabBar } from '@material/tab-bar';
 import { MDCTextField } from '@material/textfield';
 import { MDCSelect } from '@material/select';
 import {MDCSnackbar} from '@material/snackbar';
-import ListaPeliculas from '../../dominio/lista-peliculas.mjs';
-import Pelicula from '../../dominio/pelicula.mjs';
+//import ListaPeliculas from '../../dominio/lista-peliculas.mjs';
+//import Pelicula from '../../dominio/pelicula.mjs';
+import sistema from '../../dominio/sistema.js';
 import {MDCFormField} from '@material/form-field';
 import {MDCCheckbox} from '@material/checkbox';
+
+window.addEventListener("load", inicio);
+function inicio(){
+  console.log("entra");
+  let miSistema = new sistema();
+  miSistema.agregarEquipos();
+  miSistema.agregarUsuariosPrueba();
+  miSistema.crearGrupoPrueba();
+  alert(miSistema.darUsuario(3));
+}
 
 //para mostrar la card luego del boton clickeado
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
+  console.log("entra 2");
  document.getElementById('idCard').style.display="block";
 }
 
@@ -29,7 +41,7 @@ formField.input = checkbox;
 const fabRipple = new MDCRipple(document.querySelector('.mdc-fab'));
 // Este const es delboton agregar 
 
-const listaPeliculas = new ListaPeliculas();
+//const listaPeliculas = new ListaPeliculas();
 
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
@@ -56,4 +68,3 @@ const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
 const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
   return new MDCRipple(el);
 });
-
