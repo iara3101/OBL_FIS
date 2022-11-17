@@ -41,29 +41,30 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
-   if(miSistema.validarCampo(nombreGr)){
+  /* if(miSistema.validarCampo(nombreGr)){
       miSistema.crearGrupo(nombreGr,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
       document.getElementById("nombreNuevo").value = "";
-      miSistema.resetPosiblesIntegrantes = [];
+      miSistema.resetPosiblesIntegrantes();
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
-   }
+   }*/
 }
-
+/*
 document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
 function agregarIntegrante(){
-  let idUs = document.getElementById("botonAgregarParticipante").value;
+  let idUs = document.getElementById("idInputUsuario").value;
   if(miSistema.validarNumero(idUs)){
     let us = miSistema.darUsuario(idUs);
     miSistema.agregarPosibleIntegrante(us);
+    alert(miSistema.posiblesIntegrantes.length);
   } else {
     alert("Ingrese una id valida.");
   }
 }
-
+*/
 
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));

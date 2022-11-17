@@ -101,7 +101,7 @@ section {
   margin: auto;
   height: 60%; //capaz le saco altura desp
   width: 60%;
-  
+
 }
 
 .mdc-touch-target-wrapper{
@@ -119,4 +119,11 @@ section {
 
 #botonAgregarParticipante{
   padding: 18%;
+}
+
+#listaParticipantes{
+  padding-top: 5rem;
+}
+.mdc-list-item{
+  padding-left: 5rem;
 }
