@@ -24,6 +24,7 @@ function inicio(){
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
+ var posiblesIntegrantes = [];
 }
 
 // para dejar de mostrar la card cuando cancela
@@ -35,13 +36,13 @@ function sacarDisplay(){
 
 //para crear el grupo
 document.getElementById('botonCrearConfir').addEventListener('click',crearGrupo);
-function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
+function crearGrupo(lista){ //hay que acordarse del que no hay checkeos todavia
    let nombreGr =document.getElementById("nombreNuevo").value;
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
    if(miSistema.validarCampo(nombreGr)){
-      miSistema.crearGrupoVacio(nombreGr,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+      miSistema.crearGrupoLleno(nombreGr,apuestaAmistosa, lista);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
       document.getElementById("nombreNuevo").value = "";
       alert("Grupo creado!!");
@@ -49,6 +50,11 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       document.getElementById("nombreNuevo").value = "";
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
    }
+}
+
+document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
+function agregarIntegrante(){
+
 }
 
 document.getElementById('botonAgregarParticipante').addEventListener('click',agregarParticipantesGrupo);
