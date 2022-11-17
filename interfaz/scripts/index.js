@@ -44,8 +44,10 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    if(miSistema.validarCampo(nombreGr)){
       miSistema.crearGrupoVacio(nombreGr,tipoPrivado,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
-      alert("Grupo creado!!")
+      document.getElementById("nombreNuevo").value = "";
+      alert("Grupo creado!!");
    } else {
+      document.getElementById("nombreNuevo").value = "";
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
    }
 }

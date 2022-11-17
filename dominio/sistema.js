@@ -202,4 +202,7 @@ export default class sistema{
             return true;
         }
     }
+    agregarEquipo(equipo){
+        this.listaEquipos.push(equipo);
+    }
 }

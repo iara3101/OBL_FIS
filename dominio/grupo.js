@@ -1,6 +1,6 @@
 import apuesta from './apuesta.js';
 export default class grupo{
-    constructor(unNombre, idUnGrupo, unaFecha, unUsuario, unTipo){
+    constructor(unNombre, idUnGrupo, unaFecha, unUsuario, unTipo, unTipoGrupo){
         this.nombreGrupo=unNombre;
         this.idGrupo = idUnGrupo;
         this.listaIntegrantes=[];
