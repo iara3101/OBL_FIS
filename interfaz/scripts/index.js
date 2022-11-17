@@ -52,11 +52,6 @@ function crearGrupo(lista){ //hay que acordarse del que no hay checkeos todavia
    }
 }
 
-document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
-function agregarIntegrante(){
-
-}
-
 document.getElementById('botonAgregarParticipante').addEventListener('click',agregarParticipantesGrupo);
 function agregarParticipantesGrupo(){
 
