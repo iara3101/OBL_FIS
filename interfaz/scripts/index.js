@@ -41,10 +41,13 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
-   miSistema.crearGrupoVacio(nombreGr,tipoPrivado,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
-   document.getElementById('idCard').style.display="none";
-   alert("Grupo creado!!")
-
+   if(miSistema.validarCampo(nombreGr)){
+      miSistema.crearGrupoVacio(nombreGr,tipoPrivado,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+      document.getElementById('idCard').style.display="none";
+      alert("Grupo creado!!")
+   } else {
+      alert("INGRESE UN NOMBRE PARA EL GRUPO.");
+   }
 }
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));

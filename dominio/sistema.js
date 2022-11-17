@@ -166,8 +166,8 @@ export default class sistema{
         this.listaGrupos.push(nuevoGrupo);
         return nuevoGrupo;
     }
-    crearApuesta(e1, e2, us){
-        let nuevaApuesta = new apuesta(e1, e2, dia.getDate(), us);
+    crearApuesta(e1, e2, us, cantApostar){
+        let nuevaApuesta = new apuesta(e1, e2, dia.getDate(), us, cantApostar);
         return nuevaApuesta;
     }
     registrarApuesta(grupo, apuesta){
@@ -192,6 +192,14 @@ export default class sistema{
             gr.listaIntegrantes.push(us);
         } else {
             alert(us.toString() + " ya es un integrante de este grupo");
+        }
+    }
+    validarCampo(texto){
+        let aux = texto.trim();
+        if(aux.length == 0){
+            return false;
+        } else {
+            return true;
         }
     }
 }
