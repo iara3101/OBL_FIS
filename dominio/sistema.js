@@ -10,6 +10,7 @@ export default class sistema{
         this.listaEquipos = [];
         this.listaUsuarios = [];
         this.listaGrupos = [];
+        this.posiblesIntegrantes=[];
     }
     agregarUsuario(us){
         let control = true;
@@ -201,7 +202,26 @@ export default class sistema{
             return true;
         }
     }
+    validarNumero(usId){
+            return (parseInt(usId)>0  || parseInt(usId)<=6);
+      }
     agregarEquipo(equipo){
         this.listaEquipos.push(equipo);
+    }
+    agregarPosibleIntegrante(usuario){
+        let control = true;
+        for(let i=0; i<this.posiblesIntegrantes.length && control; i++){
+            if(this.posiblesIntegrantes[i].idUsuario == usuario.idUsuario){
+                control = false;
+            }
+        }
+        if(control){
+            this.posiblesIntegrantes.push(usuario);
+        } else {
+            alert("Este usuario ya es un miembro");
+        }
+    }
+    resetPosiblesIntegrantes(){
+        this.posiblesIntegrantes = [];
     }
 }
