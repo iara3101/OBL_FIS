@@ -23,7 +23,6 @@ function inicio(){
 //para mostrar la card luego del boton clickeado
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
-  console.log("entra 2");
  document.getElementById('idCard').style.display="block";
 }
 
@@ -38,12 +37,11 @@ function sacarDisplay(){
 document.getElementById('botonCrearConfir').addEventListener('click',crearGrupo);
 function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    let nombreGr =document.getElementById("nombreNuevo").value;
-   let tipoPrivado= document.getElementById("checkPrivado").checked;
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
    if(miSistema.validarCampo(nombreGr)){
-      miSistema.crearGrupoVacio(nombreGr,tipoPrivado,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+      miSistema.crearGrupoVacio(nombreGr,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
       document.getElementById("nombreNuevo").value = "";
       alert("Grupo creado!!");
@@ -52,6 +50,14 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
    }
 }
+
+document.getElementById('botonAgregarParticipante').addEventListener('click',agregarParticipantesGrupo);
+function agregarParticipantesGrupo(){
+
+
+}
+
+
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
 const formField = new MDCFormField(document.querySelector('.mdc-form-field'));

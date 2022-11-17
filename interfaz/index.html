@@ -83,48 +83,6 @@
                     <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="nombreNuevo">
                     <span class="mdc-line-ripple"></span>
                   </label>
-
-                <div id="idContenedorDeChecks1">
-                  Tipo de grupo:
-                    <div class="mdc-form-field">
-                      <div class="mdc-checkbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="checkPrivado"/>
-                        <div class="mdc-checkbox__background">
-                          <svg class="mdc-checkbox__checkmark"
-                               viewBox="0 0 24 24">
-                            <path class="mdc-checkbox__checkmark-path"
-                                  fill="none"
-                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                          </svg>
-                          <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                      </div>
-                      <label for="checkbox-1">Privado</label> 
-                    </div>
-  
-                    <div class="mdc-form-field">
-                      <div class="mdc-checkbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="checkPublico"/>
-                        <div class="mdc-checkbox__background">
-                          <svg class="mdc-checkbox__checkmark"
-                               viewBox="0 0 24 24">
-                            <path class="mdc-checkbox__checkmark-path"
-                                  fill="none"
-                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                          </svg>
-                          <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                      </div>
-                      <label for="checkbox-1">Publico</label> 
-                    </div>
-                  </div>
-
                   <div id="idContenedorDeChecks2">
                     Tipo de apuesta:
                     <div class="mdc-form-field">
@@ -164,7 +122,27 @@
                       </div>
                       <label for="checkbox-2">Apuesta Monetaria</label> 
                     </div>
-  
+                    <div>
+                     
+                       Insertar id del participante:
+                       <div class="contendorParticipantes">
+                        <label class="mdc-text-field mdc-text-field--filled">
+                          <span class="mdc-text-field__ripple"></span>
+                          <span class="mdc-floating-label" id="my-label-id"></span>
+                          <input class="mdc-text-field__input" type="number" aria-labelledby="my-label-id">
+                          <span class="mdc-line-ripple"></span>
+                        </label>
+                        <div class="mdc-touch-target-wrapper">
+                          <button class="mdc-button mdc-button--touch" id="botonAgregarParticipante">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__touch"></span>
+                            <span class="mdc-button__label">Agregar Participante</span>
+                          </button>
+                        </div>
+                       </div>
+
+                    </div>
+                    
 
                   </div>
 
