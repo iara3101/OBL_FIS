@@ -24,27 +24,28 @@ function inicio(){
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
- var posiblesIntegrantes = [];
 }
 
 // para dejar de mostrar la card cuando cancela
 document.getElementById('botonCancelar').addEventListener('click',sacarDisplay);
 function sacarDisplay(){
   document.getElementById("nombreNuevo").value = "";
- document.getElementById('idCard').style.display="none";
+  miSistema.posiblesIntegrantes = [];
+  document.getElementById('idCard').style.display="none";
 }
 
 //para crear el grupo
 document.getElementById('botonCrearConfir').addEventListener('click',crearGrupo);
-function crearGrupo(lista){ //hay que acordarse del que no hay checkeos todavia
+function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    let nombreGr =document.getElementById("nombreNuevo").value;
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
    if(miSistema.validarCampo(nombreGr)){
-      miSistema.crearGrupoLleno(nombreGr,apuestaAmistosa, lista);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+      miSistema.crearGrupo(nombreGr,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
       document.getElementById("nombreNuevo").value = "";
+      miSistema.resetPosiblesIntegrantes = [];
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
@@ -52,10 +53,15 @@ function crearGrupo(lista){ //hay que acordarse del que no hay checkeos todavia
    }
 }
 
-document.getElementById('botonAgregarParticipante').addEventListener('click',agregarParticipantesGrupo);
-function agregarParticipantesGrupo(){
-
-
+document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
+function agregarIntegrante(){
+  let idUs = document.getElementById("botonAgregarParticipante").value;
+  if(miSistema.validarNumero(idUs)){
+    let us = miSistema.darUsuario(idUs);
+    miSistema.agregarPosibleIntegrante(us);
+  } else {
+    alert("Ingrese una id valida.");
+  }
 }
 
 
