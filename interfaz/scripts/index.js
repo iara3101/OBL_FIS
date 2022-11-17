@@ -30,6 +30,7 @@ function hacerDisplay(){
 // para dejar de mostrar la card cuando cancela
 document.getElementById('botonCancelar').addEventListener('click',sacarDisplay);
 function sacarDisplay(){
+  document.getElementById("nombreNuevo").value = "";
  document.getElementById('idCard').style.display="none";
 }
 
