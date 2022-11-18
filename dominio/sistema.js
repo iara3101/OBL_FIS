@@ -153,14 +153,14 @@ export default class sistema{
         grupoPrueba.fecha = dia.getDate();
         grupoPrueba.admin = this.listaUsuarios[0];
     }
-    crearGrupoVacio(nombre, tApuesta){
+    crearGrupo(nombre, tApuesta, lista){
         let nuevoGrupo = new grupo();
         nuevoGrupo.nombreGrupo = nombre;
         nuevoGrupo.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
         nuevoGrupo.tipoApuesta=tApuesta;
         nuevoGrupo.listaApuestas = [];
-        nuevoGrupo.listaIntegrantes = [this.listaUsuarios[0]];
+        nuevoGrupo.listaIntegrantes = lista;
         nuevoGrupo.fecha = dia.getDate();
         nuevoGrupo.admin = this.listaUsuarios[0];
         this.listaGrupos.push(nuevoGrupo);
@@ -203,7 +203,7 @@ export default class sistema{
         }
     }
     validarNumero(usId){
-            return (parseInt(usId)>0  || parseInt(usId)<=6);
+            return (parseInt(usId)>0  && parseInt(usId)<=6);
       }
     agregarEquipo(equipo){
         this.listaEquipos.push(equipo);
@@ -217,12 +217,15 @@ export default class sistema{
         }
         if(control){
             this.posiblesIntegrantes.push(usuario);
+            //consoleLog(this.posiblesIntegrantes);
+            return true;
         } else {
-            alert("Este usuario ya es un miembro");
+            //alert("Este usuario ya esta en la lista de integrantes.");
+            return false;
         }
     }
     resetPosiblesIntegrantes(){
         this.posiblesIntegrantes = [];
     }
 }
-module.export = sistema;
+//module.export = sistema;

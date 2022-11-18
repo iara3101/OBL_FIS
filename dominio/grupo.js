@@ -35,4 +35,4 @@ export default class grupo{
         return this.admin;
     }
 }
-module.export = grupo;
+//module.export = grupo;

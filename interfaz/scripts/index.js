@@ -17,7 +17,8 @@ function inicio(){
   miSistema.agregarEquipos();
   miSistema.agregarUsuariosPrueba();
   miSistema.crearGrupoPrueba();
-  alert(miSistema.darUsuario(3));
+  miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
+  //alert(miSistema.posiblesIntegrantes[0]);
 }
 
 //para mostrar la card luego del boton clickeado
@@ -30,6 +31,7 @@ function hacerDisplay(){
 document.getElementById('botonCancelar').addEventListener('click',sacarDisplay);
 function sacarDisplay(){
   document.getElementById("nombreNuevo").value = "";
+  document.getElementById("idInputUsuario").value = "";
   miSistema.posiblesIntegrantes = [];
   document.getElementById('idCard').style.display="none";
 }
@@ -41,34 +43,39 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
    //let tipoPublico= document.getElementById("checkPublico").checked;
    let apuestaAmistosa= document.getElementById("checkApuestaAmistosa").checked;
    //let apuestaMonetaria= document.getElementById("checkApuestaPrivada").checked;
-  /* if(miSistema.validarCampo(nombreGr)){
-      miSistema.crearGrupo(nombreGr,apuestaAmistosa);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
+   if(miSistema.validarCampo(nombreGr)){
+      miSistema.crearGrupo(nombreGr, apuestaAmistosa, miSistema.posiblesIntegrantes);// tipo:amistoso/plata (amistoso=true) primero y segundo privado/publico(privado=true)
       document.getElementById('idCard').style.display="none";
       document.getElementById("nombreNuevo").value = "";
       miSistema.resetPosiblesIntegrantes();
+      miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
-   }*/
+   }
 }
 
 document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
 function agregarIntegrante(){
-  /*let idUs = juan//document.getElementById("idInputUsuario").value;
-  
-  let nodoLi =document.createElement("li");
-  let nodoTexto= document.createTextNode(idUs); 
-  nodoLi.appendChild(nodoTexto);
-  nodoTexto.appendChild(nodoLi);*/
-  let idUs = document.getElementById("idInputUsuario").value;
-  let combo=document.getElementById("posiblesParticipantesDelGrupo");
-  //for(let elemento of datos){
+  let idUs = parseInt(document.getElementById("idInputUsuario").value);
+  if(miSistema.validarNumero(idUs)){
+    let nuevoUsuario = miSistema.darUsuario(idUs);
+    if(miSistema.agregarPosibleIntegrante(nuevoUsuario)){
+      let nuevoIntegrante = miSistema.darUsuario(idUs);
+      let combo=document.getElementById("posiblesParticipantesDelGrupo");
       let nodoOp =document.createElement("li");
-      let nodoTexto= document.createTextNode("Usuario con id: "+idUs); 
+      let nodoTexto= document.createTextNode(nuevoIntegrante); 
       nodoOp.appendChild(nodoTexto);
       combo.appendChild(nodoOp);
-    // }
+      document.getElementById("idInputUsuario").value = "";
+    } else {
+      document.getElementById("idInputUsuario").value = "";
+    }
+  } else {
+    alert("No hay un usuario con esa id");
+    document.getElementById("idInputUsuario").value = "";
+  }
 }
 
 

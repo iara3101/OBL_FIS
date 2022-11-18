@@ -25,4 +25,4 @@ export default class apuesta{
         return this.monto;
     }
 }
-module.export = apuesta;
+//module.export = apuesta;

@@ -7,4 +7,4 @@ export default class equipo{
         return this.nombreEquipo;
     }
 }
-module.exports = equipo;
+//module.exports = equipo;
