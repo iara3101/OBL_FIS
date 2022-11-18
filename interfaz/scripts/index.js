@@ -52,19 +52,25 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       alert("INGRESE UN NOMBRE PARA EL GRUPO.");
    }*/
 }
-/*
+
 document.getElementById("botonAgregarParticipante").addEventListener("click", agregarIntegrante);
 function agregarIntegrante(){
+  /*let idUs = juan//document.getElementById("idInputUsuario").value;
+  
+  let nodoLi =document.createElement("li");
+  let nodoTexto= document.createTextNode(idUs); 
+  nodoLi.appendChild(nodoTexto);
+  nodoTexto.appendChild(nodoLi);*/
   let idUs = document.getElementById("idInputUsuario").value;
-  if(miSistema.validarNumero(idUs)){
-    let us = miSistema.darUsuario(idUs);
-    miSistema.agregarPosibleIntegrante(us);
-    alert(miSistema.posiblesIntegrantes.length);
-  } else {
-    alert("Ingrese una id valida.");
-  }
+  let combo=document.getElementById("posiblesParticipantesDelGrupo");
+  //for(let elemento of datos){
+      let nodoOp =document.createElement("li");
+      let nodoTexto= document.createTextNode("Usuario con id: "+idUs); 
+      nodoOp.appendChild(nodoTexto);
+      combo.appendChild(nodoOp);
+    // }
 }
-*/
+
 
 
 const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
