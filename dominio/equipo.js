@@ -1,9 +1,11 @@
-export default class equipo{
+//export default 
+class equipo{
     constructor(unNombre){
         this.nombreEquipo = unNombre;
     }
 
     getNombreEquipo(){
-        return this.unNombre;
+        return this.nombreEquipo;
     }
 }
+module.exports = equipo;

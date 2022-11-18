@@ -3,18 +3,21 @@ import equipo from './equipo.js';
 import grupo from './grupo.js';
 import usuario from './usuario.js';
 const dia = new Date();
-export default class sistema{
+
+//export default 
+class sistema{
     constructor(){
         this.idSistemaUsuario = 1;
         this.idSistemaGrupo = 1;
         this.listaEquipos = [];
         this.listaUsuarios = [];
         this.listaGrupos = [];
+        this.posiblesIntegrantes=[];
     }
     agregarUsuario(us){
         let control = true;
         for(let i=0; i<this.listaUsuarios.length && control; i++){
-            if((us.idUsuario == this.listaUsuarios[i].idUsuario) && (us.nombre == this.listaUsuarios[i].nombre)){
+            if((us.getId() == this.listaUsuarios[i].getId()) && (us.getNombre() == this.listaUsuarios[i].getNombre())){
                 control = false;
             }
         }
@@ -28,7 +31,7 @@ export default class sistema{
     agregarGrupo(grupo){
         let control = true;
         for(let i=1; i<this.listaGrupos.length && control; i++){
-            if(this.listaGrupos[i].nombre == grupo.nombre){
+            if(this.listaGrupos[i].getNombreGrupo() == grupo.getNombreGrupo()){
                 control = false;
             }
         }
@@ -43,7 +46,7 @@ export default class sistema{
         let control = true;
         let aux = 0;
         for(let i=0; i<this.listaEquipos.length && control; i++){
-            if(this.listaEquipos[i].toUpperCase() == nombreEquipo.toUpperCase()){
+            if(this.listaEquipos[i].getNombreEquipo().toUpperCase() == nombreEquipo.toUpperCase()){
                 control = false;
                 aux = i;
             }
@@ -58,7 +61,7 @@ export default class sistema{
         let control = true;
         let aux = 0;
         for(let i=0; i<this.listaUsuarios.length && control; i++){
-            if(this.listaUsuarios[i].idUsuario == id){
+            if(this.listaUsuarios[i].getId() == id){
                 control = false;
                 aux = i;
             }
@@ -73,7 +76,7 @@ export default class sistema{
         let control = true;
         let aux = 0;
         for(let i=0; i<this.listaGrupos.length && control; i++){
-            if(this.listaGrupos[i].idGrupo == id){
+            if(this.listaGrupos[i].getIdGrupo() == id){
                 control = false;
                 aux = i;
             }
@@ -152,12 +155,11 @@ export default class sistema{
         grupoPrueba.fecha = dia.getDate();
         grupoPrueba.admin = this.listaUsuarios[0];
     }
-    crearGrupoVacio(nombre,tGrupo, tApuesta){
+    crearGrupoVacio(nombre, tApuesta){
         let nuevoGrupo = new grupo();
         nuevoGrupo.nombreGrupo = nombre;
         nuevoGrupo.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
-        nuevoGrupo.tipoGrupo=tGrupo;
         nuevoGrupo.tipoApuesta=tApuesta;
         nuevoGrupo.listaApuestas = [];
         nuevoGrupo.listaIntegrantes = [this.listaUsuarios[0]];
@@ -173,7 +175,7 @@ export default class sistema{
     registrarApuesta(grupo, apuesta){
         let control = true;
         for(let i=0; i<grupo.listaApuestas.length && control; i++){
-            if(grupo.listaApuestas[i].usuario.idUsuario == apuesta.usuario.idUsuario){
+            if(grupo.listaApuestas[i].getUsuario().getId() == apuesta.getUsuario().getId()){
                 control = false;
             }
         }
@@ -184,7 +186,7 @@ export default class sistema{
     agregarUsuarioAlGrupo(us, gr){
         let control = true;
         for(let i=0; i<gr.listaIntegrantes.length && control; i++){
-            if(gr.listaIntegrantes[i].idUsuario == us.idUsuario){
+            if(gr.listaIntegrantes[i].getUsuario() == us.idUsuario()){
                 control = false; //el usuario ya esta en el grupo
             }
         }
@@ -202,7 +204,27 @@ export default class sistema{
             return true;
         }
     }
+    validarNumero(usId){
+            return (parseInt(usId)>0  || parseInt(usId)<=6);
+      }
     agregarEquipo(equipo){
         this.listaEquipos.push(equipo);
     }
+    agregarPosibleIntegrante(usuario){
+        let control = true;
+        for(let i=0; i<this.posiblesIntegrantes.length && control; i++){
+            if(this.posiblesIntegrantes[i].getId() == usuario.getId()){
+                control = false;
+            }
+        }
+        if(control){
+            this.posiblesIntegrantes.push(usuario);
+        } else {
+            alert("Este usuario ya es un miembro");
+        }
+    }
+    resetPosiblesIntegrantes(){
+        this.posiblesIntegrantes = [];
+    }
 }
+module.export = sistema;

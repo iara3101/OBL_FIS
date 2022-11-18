@@ -1,4 +1,5 @@
-export default class usuario{
+//export default 
+class usuario{
     constructor(nombreUsuario, unaIdUsuario){
         this.nombre = nombreUsuario;
         this.idUsuario = unaIdUsuario;
@@ -6,4 +7,8 @@ export default class usuario{
     toString(){
         return "Nombre: " + this.nombre + "; id: " + this.idUsuario;
     }
+    getNombre(){
+        return this.nombre;
+    }
 }
+module.exports = usuario;
