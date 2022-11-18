@@ -7,6 +7,22 @@ export default class apuesta{
         this.monto = dinero;
     }
     toString(){
-        return this.unE1 + " vs " + this.unE2 + " hecha por: " + this.usuario.nombre;
+        return this.equipo1 + " vs " + this.equipo2 + " hecha por: " + this.usuario.getNombre();
+    }
+    getE1(){
+        return this.equipo1;
+    }
+    getE2(){
+        return this.equipo2;
+    }
+    getFecha(){
+        return this.fecha2;
+    }
+    getUsuario(){
+        return this.usuario;
+    }
+    getMonto(){
+        return this.monto;
     }
 }
+module.export = apuesta;

@@ -4,6 +4,7 @@ export default class equipo{
     }
 
     getNombreEquipo(){
-        return this.unNombre;
+        return this.nombreEquipo;
     }
 }
+module.exports = equipo;

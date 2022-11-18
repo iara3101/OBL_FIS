@@ -6,4 +6,10 @@ export default class usuario{
     toString(){
         return "Nombre: " + this.nombre + "; id: " + this.idUsuario;
     }
+    getNombre(){
+        return this.nombre;
+    }
+    getId(){
+        return this.idUsuario;
+    }
 }

@@ -13,4 +13,26 @@ export default class grupo{
     toString(){
         return this.nombreGrupo + ", " + this.listaIntegrantes.length + " integrantes.";
     }
+    getNombreGrupo(){
+        return this.nombreGrupo;
+    }
+    getIdGrupo(){
+        return this.idGrupo;
+    }
+    getListaIntegrantes(){
+        return this.listaIntegrantes;
+    }
+    getTipoGrupo(){
+        return this.tipoGrupo;
+    }
+    getTipoApuesta(){
+        return this.tipoApuesta;
+    }
+    getFecha(){
+        return this.fecha;
+    }
+    getAdmin(){
+        return this.admin;
+    }
 }
+module.export = grupo;
