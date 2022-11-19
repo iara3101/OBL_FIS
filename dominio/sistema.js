@@ -143,7 +143,7 @@ export default class sistema{
     }
     crearGrupoPrueba(){
         let grupoPrueba = new grupo();
-        grupoPrueba.nombre = "Grupo Prueba";
+        grupoPrueba.nombreGrupo = "Grupo Prueba";
         grupoPrueba.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
         grupoPrueba.listaIntegrantes = [this.listaUsuarios[0], this.listaUsuarios[1], this.listaUsuarios[2]];
