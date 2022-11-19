@@ -18,13 +18,23 @@ function inicio(){
   miSistema.agregarUsuariosPrueba();
   miSistema.crearGrupoPrueba();
   miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
-  //alert(miSistema.posiblesIntegrantes[0]);
+  mostrarGrupos();
 }
+
+function mostrarGrupos(){
+  let combo2=document.getElementById("gruposCreados");
+      combo2.innerHTML="";
+      for(let unG of miSistema.listaGrupos){
+        let nodoOp =document.createElement("li");
+        let nodoTexto= document.createTextNode(unG.getNombreGrupo()); 
+        nodoOp.appendChild(nodoTexto);
+        combo2.appendChild(nodoOp);
+       }
+}
+
 
 document.getElementById('botonVerDetallesGrupo').addEventListener('click',pr);
 function pr(){
-  //alert("entra");
-
   let nombreGrupo = document.getElementById('nombreGrupo').value;
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
@@ -45,6 +55,9 @@ function pr(){
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
+ document.getElementById('gruposCreados').style.display = "none";
+ document.getElementById('seleccionGrupo').style.display = "none";
+
 }
 
 // para dejar de mostrar la card cuando cancela
@@ -54,6 +67,8 @@ function sacarDisplay(){
   document.getElementById("idInputUsuario").value = "";
   miSistema.posiblesIntegrantes = [];
   document.getElementById('idCard').style.display="none";
+  document.getElementById('gruposCreados').style.display = "block";
+  document.getElementById('seleccionGrupo').style.display = "block";
 }
 
 //para crear el grupo
@@ -71,22 +86,9 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
       let combo=document.getElementById("posiblesParticipantesDelGrupo");
       combo.innerHTML="";
-    //magia
-      /*let nuevoIntegrante = miSistema.darGrupo();
-      let combo2=document.getElementById("gruposCreados");
-      let nodoOp =document.createElement("li");
-      let nodoTexto= document.createTextNode(nuevoIntegrante); 
-      nodoOp.appendChild(nodoTexto);
-      combo2.appendChild(nodoOp);
-      */
-      let combo2=document.getElementById("gruposCreados");
-      combo2.innerHTML="";
-      for(let unG of miSistema.listaGrupos){
-        let nodoOp =document.createElement("li");
-        let nodoTexto= document.createTextNode(unG.getNombreGrupo()); 
-        nodoOp.appendChild(nodoTexto);
-        combo2.appendChild(nodoOp);
-       }
+      mostrarGrupos();
+      document.getElementById('gruposCreados').style.display = "block";
+      document.getElementById('seleccionGrupo').style.display = "block";
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
