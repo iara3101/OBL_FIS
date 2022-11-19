@@ -5,10 +5,13 @@ class usuario{
         this.idUsuario = unaIdUsuario;
     }
     toString(){
-        return "Nombre: " + this.nombre + "; id: " + this.idUsuario;
+        return this.nombre + "; id: " + this.idUsuario;
     }
     getNombre(){
         return this.nombre;
+    }
+    getId(){
+        return this.idUsuario;
     }
 }
 module.exports = usuario;

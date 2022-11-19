@@ -11,6 +11,10 @@ test('Devolver el nombre', () => {
     expect(usuarioKike.getNombre()).toBe("Kike");
 });
 
+test('Devolver el id', () => {
+    expect(usuarioKike.getId()).toBe(1);
+});
+
 test('to String del usuario', () => {
-    expect(usuarioKike.toString()).toBe("Nombre: Kike; id: 1");
+    expect(usuarioKike.toString()).toBe("Kike; id: 1");
 });

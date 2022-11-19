@@ -4,7 +4,7 @@
   "description": "Ejemplo de modelo dominio Cartelera",
   "main": "index.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "FIS",
   "license": "",
