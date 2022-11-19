@@ -49,6 +49,8 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       document.getElementById("nombreNuevo").value = "";
       miSistema.resetPosiblesIntegrantes();
       miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
+      let combo=document.getElementById("posiblesParticipantesDelGrupo");
+      combo.innerHTML="";
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
@@ -70,6 +72,7 @@ function agregarIntegrante(){
       combo.appendChild(nodoOp);
       document.getElementById("idInputUsuario").value = "";
     } else {
+      alert("Esta usuario ya es un integrante del grupo");
       document.getElementById("idInputUsuario").value = "";
     }
   } else {
