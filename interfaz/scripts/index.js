@@ -51,6 +51,22 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
       let combo=document.getElementById("posiblesParticipantesDelGrupo");
       combo.innerHTML="";
+    //magia
+      /*let nuevoIntegrante = miSistema.darGrupo();
+      let combo2=document.getElementById("gruposCreados");
+      let nodoOp =document.createElement("li");
+      let nodoTexto= document.createTextNode(nuevoIntegrante); 
+      nodoOp.appendChild(nodoTexto);
+      combo2.appendChild(nodoOp);
+      */
+      let combo2=document.getElementById("gruposCreados");
+      combo2.innerHTML="";
+      for(let unG of miSistema.listaGrupos){
+        let nodoOp =document.createElement("li");
+        let nodoTexto= document.createTextNode(unG.getNombreGrupo()); 
+        nodoOp.appendChild(nodoTexto);
+        combo2.appendChild(nodoOp);
+       }
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
