@@ -39,7 +39,8 @@ function pr(){
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
     if(miSistema.buscarGrupo(nombreGrupo)){
-      document.getElementById('idCard2').style.display="block";    
+      document.getElementById('idCard2').style.display="block";
+      document.getElementById('registradorApuesta').style.display="none";
       alert(miGrupo);
       //funcion que ponga los datos de la card
     } else {
