@@ -88,7 +88,6 @@ function agregarIntegrante(){
       combo.appendChild(nodoOp);
       document.getElementById("idInputUsuario").value = "";
     } else {
-      alert("Esta usuario ya es un integrante del grupo");
       document.getElementById("idInputUsuario").value = "";
     }
   } else {
