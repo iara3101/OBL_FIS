@@ -21,9 +21,22 @@ function inicio(){
   //alert(miSistema.posiblesIntegrantes[0]);
 }
 
-document.getElementById('prueban').addEventListener('click',pr);
+document.getElementById('botonVerDetallesGrupo').addEventListener('click',pr);
 function pr(){
-  alert("HOAL");
+  //alert("entra");
+  let nombreGrupo = document.getElementById('nombreGrupo').value;
+  if(miSistema.validarCampo(nombreGrupo)){
+    let miGrupo = miSistema.darGrupo(nombreGrupo);
+    if(miSistema.buscarGrupo(nombreGrupo)){
+      alert(miGrupo);
+      //funcion que ponga los datos de la card
+    } else {
+      alert("No hay un grupo con ese nombre.");
+    }
+  } else {
+    alert("Ingrese un nombre de grupo.");
+  }
+
 }
 
 //para mostrar la card luego del boton clickeado

@@ -70,11 +70,11 @@ export default class sistema{
             alert("No hay un usuario con la id: " + id);
         }
     }
-    darGrupo(id){
+    darGrupo(nombre){
         let control = true;
         let aux = 0;
         for(let i=0; i<this.listaGrupos.length && control; i++){
-            if(this.listaGrupos[i].getIdGrupo() == id){
+            if(this.listaGrupos[i].getNombreGrupo() == nombre){
                 control = false;
                 aux = i;
             }
@@ -82,8 +82,17 @@ export default class sistema{
         if(!control){
             return this.listaGrupos[aux];
         } else {
-            alert("No hay un grupo con la id: " + id);
+            alert("No hay un grupo con el nombre: " + nombre);
         }
+    }
+    buscarGrupo(nombre){
+        let control = false;
+        for(let i=0; i<this.listaGrupos.length && !control; i++){
+            if(this.listaGrupos[i].getNombreGrupo() == nombre){
+                control = true;
+            }
+        }
+        return control;
     }
     agregarUsuariosPrueba(){ //seran un total de 6 usuarios, incuyendo al operador
         let usuario1 = new usuario("Mateo Arias", this.idSistemaUsuario); //su id es 1, es el "operador"
