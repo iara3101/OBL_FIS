@@ -152,6 +152,7 @@ export default class sistema{
         grupoPrueba.listaApuestas = [];
         grupoPrueba.fecha = dia.getDate();
         grupoPrueba.admin = this.listaUsuarios[0];
+        this.listaGrupos(grupoPrueba);
     }
     crearGrupo(nombre, tApuesta, lista){
         let nuevoGrupo = new grupo();
@@ -159,6 +160,7 @@ export default class sistema{
         nuevoGrupo.idGrupo = this.idSistemaGrupo;
         this.idSistemaGrupo++;
         nuevoGrupo.tipoApuesta=tApuesta;
+        nuevoGrupo.tipoGrupo = true;
         nuevoGrupo.listaApuestas = [];
         nuevoGrupo.listaIntegrantes = lista;
         nuevoGrupo.fecha = dia.getDate();
