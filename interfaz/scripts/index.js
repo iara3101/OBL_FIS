@@ -70,6 +70,7 @@ function agregarIntegrante(){
       combo.appendChild(nodoOp);
       document.getElementById("idInputUsuario").value = "";
     } else {
+      alert("Este usuario ya esta en el grupo.");
       document.getElementById("idInputUsuario").value = "";
     }
   } else {
