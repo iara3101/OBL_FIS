@@ -205,93 +205,47 @@
           <div class="mdc-card__primary-action">
             <div class="mdc-card__media mdc-card__media--square">
               <div class="mdc-card__media-content">
-                  <h2>Nombre Grupo</h2>
-                  <label class="mdc-text-field mdc-text-field--filled">
-                    <span class="mdc-text-field__ripple"></span>
-                    <span class="mdc-floating-label">vA ITRA COSA</span> 
-                    <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="nombreNuevo">
-                    <span class="mdc-line-ripple"></span>
-                  </label>
+                  <h2 id="nombreDetalleGrupo">Nombre Grupo</h2>
                   <div id="idContenedorDeChecks2">
-                    Tipo de apuesta:SA 
-                    <div class="mdc-form-field">
-                      <div class="mdc-checkbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="checkApuestaAmistosa"/>
-                        <div class="mdc-checkbox__background">
-                          <svg class="mdc-checkbox__checkmark"
-                               viewBox="0 0 24 24">
-                            <path class="mdc-checkbox__checkmark-path"
-                                  fill="none"
-                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                          </svg>
-                          <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                      </div>
-                      <label for="checkbox-1">Amistoso</label> 
-                    </div>
-  
-                    <div class="mdc-form-field">
-                      <div class="mdc-checkbox">
-                        <input type="checkbox"
-                               class="mdc-checkbox__native-control"
-                               id="checkApuestaPrivada"/>
-                        <div class="mdc-checkbox__background">
-                          <svg class="mdc-checkbox__checkmark"
-                               viewBox="0 0 24 24">
-                            <path class="mdc-checkbox__checkmark-path"
-                                  fill="none"
-                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                          </svg>
-                          <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                      </div>
-                      <label for="checkbox-2">Apuesta Monetaria</label> 
-                    </div>
                     <div>
-                     
-                       Insertar id del participante:
-                       <div class="contendorParticipantes">
-                        <label class="mdc-text-field mdc-text-field--filled">
-                          <span class="mdc-text-field__ripple"></span>
-                          <span class="mdc-floating-label" id="my-label-id"></span>
-                          <input id="idInputUsuario" class="mdc-text-field__input" type="number" aria-labelledby="my-label-id">
-                          <span class="mdc-line-ripple"></span>
-                        </label>
-                        <div class="mdc-touch-target-wrapper">
-                          <button class="mdc-button mdc-button--touch" id="botonAgregarParticipante">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__touch"></span>
-                            <span class="mdc-button__label">Agregar Participante</span>
-                          </button>
-                        </div>
-                      </div>
-
+                      <h3>Lista de Integrantes:</h3>
+                      <button class="mdc-button mdc-button--touch" id="irApuestas">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <span class="mdc-button__label">Realizar Apuesta</span>
+                      </button>
                     </div>
-                    <div id="listaParticipantes">
-                      El usuario admin (Mateo Arias, id=1), ya forma parte del grupo (asumimos que estamos en su sesion (su login))
-                      <ul class="mdc-list" id="posiblesParticipantesDelGrupo">
-                        <!--<li class="mdc-list-item" tabindex="0">
-                          <span class="mdc-list-item__ripple"></span>
-                          <span class="mdc-list-item__text">Single-line item</span>
-                        </li>
-                        <li class="mdc-list-item">
-                          <span class="mdc-list-item__ripple"></span>
-                          <span class="mdc-list-item__text">Single-line item</span>
-                        </li>
-                        <li class="mdc-list-item">
-                          <span class="mdc-list-item__ripple"></span>
-                          <span class="mdc-list-item__text">Single-line item</span>
-                        </li>-->
-                      </ul>
+                    <div id="registradorApuesta">
+                      <h3> Elija los dos equipos finalistas:</h3>
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label"></span> <!-- ojo porque cambie el id por defecto al de la plantilla-->
+                        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="equipo1">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                      VS.
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label"></span> <!-- ojo porque cambie el id por defecto al de la plantilla-->
+                        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="equipo2">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                      <p></p>
+                      <h5>Total a apostar:</h5>
+                      <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="my-label-id"></span>
+                        <input id="inputTotalApuesta" class="mdc-text-field__input" type="number" aria-labelledby="my-label-id">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
+                      <p></p>
+                      <button class="mdc-button mdc-button--touch" id="registrarApuesta">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__touch"></span>
+                        <span class="mdc-button__label">Registrar Apuesta</span>
+                      </button>
                     </div>
-
                   </div>
-
-
               </div>
             </div>
             <!-- ... additional primary action content ... -->
