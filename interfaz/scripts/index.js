@@ -21,6 +21,11 @@ function inicio(){
   //alert(miSistema.posiblesIntegrantes[0]);
 }
 
+document.getElementById('prueban').addEventListener('click',pr);
+function pr(){
+  alert("HOAL");
+}
+
 //para mostrar la card luego del boton clickeado
 document.getElementById('botonCrear').addEventListener('click',hacerDisplay);
 function hacerDisplay(){
