@@ -145,7 +145,7 @@ export default class sistema{
         let grupoPrueba = new grupo();
         grupoPrueba.nombreGrupo = "Grupo Prueba";
         grupoPrueba.idGrupo = this.idSistemaGrupo;
-        this.idSistemaGrupo++;
+        //this.idSistemaGrupo++;
         grupoPrueba.listaIntegrantes = [this.listaUsuarios[0], this.listaUsuarios[1], this.listaUsuarios[2]];
         grupoPrueba.tipoGrupo = true;
         grupoPrueba.tipoApuesta = true;
@@ -158,7 +158,7 @@ export default class sistema{
         let nuevoGrupo = new grupo();
         nuevoGrupo.nombreGrupo = nombre;
         nuevoGrupo.idGrupo = this.idSistemaGrupo;
-        this.idSistemaGrupo++;
+        //this.idSistemaGrupo++;
         nuevoGrupo.tipoApuesta=tApuesta;
         nuevoGrupo.tipoGrupo = true;
         nuevoGrupo.listaApuestas = [];
