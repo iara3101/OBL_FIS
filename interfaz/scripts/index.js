@@ -24,10 +24,12 @@ function inicio(){
 document.getElementById('botonVerDetallesGrupo').addEventListener('click',pr);
 function pr(){
   //alert("entra");
+
   let nombreGrupo = document.getElementById('nombreGrupo').value;
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
     if(miSistema.buscarGrupo(nombreGrupo)){
+      document.getElementById('idCard2').style.display="block";    
       alert(miGrupo);
       //funcion que ponga los datos de la card
     } else {
