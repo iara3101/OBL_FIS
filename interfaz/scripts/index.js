@@ -33,14 +33,16 @@ function mostrarGrupos(){
 }
 
 
-document.getElementById('botonVerDetallesGrupo').addEventListener('click',pr);
-function pr(){
+document.getElementById('botonVerDetallesGrupo').addEventListener('click', mostrarGrupo);
+function mostrarGrupo(){
   let nombreGrupo = document.getElementById('nombreGrupo').value;
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
     if(miSistema.buscarGrupo(nombreGrupo)){
       document.getElementById('idCard2').style.display="block";
       document.getElementById('registradorApuesta').style.display="none";
+      document.getElementById('gruposCreados').style.display = "none";
+      document.getElementById('seleccionGrupo').style.display = "none";
       alert(miGrupo);
       //funcion que ponga los datos de la card
     } else {
@@ -50,6 +52,20 @@ function pr(){
     alert("Ingrese un nombre de grupo.");
   }
 
+}
+
+document.getElementById('botonCancelar2').addEventListener("click", cerrarDetalleGrupo);
+function cerrarDetalleGrupo(){
+  document.getElementById('idCard2').style.display="none";
+  document.getElementById('registradorApuesta').style.display="none";
+  document.getElementById('gruposCreados').style.display = "block";
+  document.getElementById('seleccionGrupo').style.display = "block";
+}
+
+document.getElementById('irApuestas').addEventListener("click", mostrarApostador)
+function mostrarApostador(){
+  document.getElementById('registradorApuesta').style.display = "block";
+  document.getElementById('irApuestas').style.display = "none";
 }
 
 //para mostrar la card luego del boton clickeado
