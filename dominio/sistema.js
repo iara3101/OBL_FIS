@@ -159,7 +159,7 @@ export default class sistema{
         grupoPrueba.tipoGrupo = true;
         grupoPrueba.tipoApuesta = true;
         grupoPrueba.listaApuestas = [];
-        grupoPrueba.fecha = dia.getDate();
+        grupoPrueba.fecha = dia.getDate() + "/" + dia.getMonth() + "/" + dia.getFullYear();
         grupoPrueba.admin = this.listaUsuarios[0];
         this.agregarGrupo(grupoPrueba);
     }
@@ -172,13 +172,14 @@ export default class sistema{
         nuevoGrupo.tipoGrupo = true;
         nuevoGrupo.listaApuestas = [];
         nuevoGrupo.listaIntegrantes = lista;
-        nuevoGrupo.fecha = dia.getDate();
+        nuevoGrupo.fecha = dia.getDate() + "/" + dia.getMonth() + "/" + dia.getFullYear();
         nuevoGrupo.admin = this.listaUsuarios[0];
         this.agregarGrupo(nuevoGrupo);
         return nuevoGrupo;
     }
     crearApuesta(e1, e2, us, cantApostar){
-        let nuevaApuesta = new apuesta(e1, e2, dia.getDate(), us, cantApostar);
+        let fecha = dia.getDate() + "/" + dia.getMonth() + "/" + dia.getFullYear();
+        let nuevaApuesta = new apuesta(e1, e2, fecha, us, cantApostar);
         return nuevaApuesta;
     }
     registrarApuesta(grupo, apuesta){

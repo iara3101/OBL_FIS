@@ -19,6 +19,7 @@ function inicio(){
   miSistema.crearGrupoPrueba();
   miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
   mostrarGrupos();
+  alert(miSistema.listaGrupos[0].getListaIntegrantes());
 }
 
 function mostrarGrupos(){
@@ -32,6 +33,17 @@ function mostrarGrupos(){
        }
 }
 
+function mostrarIntegrantes(grupo){
+  let combo3 = document.getElementById('listaIntegrantes');
+  combo3.innerHTML = "";
+  for(let us of grupo.getListaIntegrantes()){
+    let nodo3 = document.createElement("li");
+    let nodoTexto3 = document.createTextNode(us);
+    nodo3.appendChild(nodoTexto3);
+    combo3.appendChild(nodo3);
+  }
+}
+
 
 document.getElementById('botonVerDetallesGrupo').addEventListener('click', mostrarGrupo);
 function mostrarGrupo(){
@@ -43,10 +55,14 @@ function mostrarGrupo(){
       document.getElementById('registradorApuesta').style.display="none";
       document.getElementById('gruposCreados').style.display = "none";
       document.getElementById('seleccionGrupo').style.display = "none";
+      document.getElementById('irApuestas').style.display = "block";
+      document.getElementById('nombreDetalleGrupo').innerHTML = miGrupo.getNombreGrupo();
+      document.getElementById('detallesExtra').innerHTML = "Admin: " + miGrupo.getAdmin() + ". Creado en la fecha: " + miGrupo.getFecha();
+      mostrarIntegrantes(miGrupo);
       alert(miGrupo);
       //funcion que ponga los datos de la card
     } else {
-      alert("No hay un grupo con ese nombre.");
+      //alert("No hay un grupo con ese nombre.");
     }
   } else {
     alert("Ingrese un nombre de grupo.");
