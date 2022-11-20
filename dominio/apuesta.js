@@ -1,5 +1,4 @@
-//export default 
-class apuesta{
+export default class apuesta{
     constructor(unE1,unE2,unaFecha2,unUsuario, dinero){
         this.equipo1=unE1;
         this.equipo2=unE2;

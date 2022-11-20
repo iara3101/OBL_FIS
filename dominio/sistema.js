@@ -4,8 +4,7 @@ import grupo from './grupo.js';
 import usuario from './usuario.js';
 const dia = new Date();
 
-//export default 
-class sistema{
+export default class sistema{
     constructor(){
         this.idSistemaUsuario = 1;
         this.idSistemaGrupo = 1;
