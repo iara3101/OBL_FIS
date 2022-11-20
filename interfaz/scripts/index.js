@@ -22,8 +22,9 @@ function inicio(){
   miSistema.crearGrupoPrueba();
   //const grupoActual = miSistema.darGrupo("Grupo Prueba");
   miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
+  miSistema.crearApuestasPrueba();
   mostrarGrupos();
-  alert(miSistema.listaGrupos[0].getListaIntegrantes());
+  //alert(miSistema.listaGrupos[0].getListaApuestas());
 }
 
 function mostrarApuestas(){
@@ -81,7 +82,7 @@ function mostrarGrupo(){
       //document.getElementById('nombreDetalleGrupo').innerHTML = miGrupo.getNombreGrupo();
       document.getElementById('detallesExtra').innerHTML = "Admin: " + miGrupo.getAdmin() + ". Creado en la fecha: " + miGrupo.getFecha();
       mostrarIntegrantes(miGrupo);
-      alert(miGrupo);
+      //alert(miGrupo);
       mostrarApuestas();
       //funcion que ponga los datos de la card
     } else {
@@ -109,10 +110,13 @@ function hacerApuesta(){
       } else {
         if(miSistema.validarMontoApostar(monto)){
           let apostar = miSistema.crearApuesta(equipo1, equipo2, miSistema.darUsuario(1), monto);
-          miSistema.registrarApuesta(miSistema.darGrupo(grupoActual.getNombreGrupo()), apostar);
+          if(miSistema.registrarApuesta(miSistema.darGrupo(grupoActual.getNombreGrupo()), apostar)){
+            alert("Apuesta registrada con exito.");
+          }
           document.getElementById('equipo1').value = "";
           document.getElementById('equipo2').value = "";
           document.getElementById('inputTotalApuesta').value = "";
+          mostrarApuestas();
         } else {
           alert("Ingrese un monto a apostar mayor a 0.");
         }

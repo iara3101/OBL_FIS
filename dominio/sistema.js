@@ -50,6 +50,21 @@ export default class sistema{
         }
         return false;
     }
+    darNombreEquipo(nombreEquipo){
+        let control = true;
+        let aux = "";
+        for(let i=0; i<this.listaEquipos.length && control; i++){
+            if(this.listaEquipos[i].getNombreEquipo().toUpperCase() == nombreEquipo.toUpperCase()){
+                control = false;
+                aux = this.listaEquipos[i].getNombreEquipo();
+            }
+        }
+        if(!control){
+            return aux;
+        } else {
+            alert("No hay un equipo con ese nombre.");
+        }
+    }
     darUsuario(id){
         let control = true;
         let aux = 0;
@@ -158,6 +173,14 @@ export default class sistema{
         grupoPrueba.admin = this.listaUsuarios[0];
         this.agregarGrupo(grupoPrueba);
     }
+    crearApuestasPrueba(){
+        let apuesta1 = this.crearApuesta(this.darNombreEquipo("uruguay"), this.darNombreEquipo("ecuador"), this.listaUsuarios[1], 1500);
+        this.registrarApuesta(this.listaGrupos[0], apuesta1);
+        let apuesta2 = this.crearApuesta(this.darNombreEquipo("brasil"), this.darNombreEquipo("españa"), this.listaUsuarios[2], 2000);
+        this.registrarApuesta(this.listaGrupos[0], apuesta2);
+        let apuesta3 = this.crearApuesta(this.darNombreEquipo("inglaterra"), this.darNombreEquipo("brasil"), this.listaUsuarios[5], 1850);
+        this.registrarApuesta(this.listaGrupos[0], apuesta3);
+    }
     crearGrupo(nombre, tApuesta, lista){
         let nuevoGrupo = new grupo();
         nuevoGrupo.nombreGrupo = nombre;
@@ -179,16 +202,20 @@ export default class sistema{
     }
     registrarApuesta(grupo, apuesta){
         let control = true;
-        for(let i=0; i<grupo.listaApuestas.length && control; i++){
-            if(grupo.listaApuestas[i].getUsuario().getId() == apuesta.getUsuario().getId()){
+        for(let i=0; i<grupo.getListaApuestas().length && control; i++){
+            let usuario1 = grupo.getListaApuestas()[i].getUsuario();
+            if(usuario1.getId() == apuesta.getUsuario().getId()){
                 control = false;
             }
+            //alert(grupo.getListaApuestas()[i].getUsuario());
         }
         if(control){
             grupo.listaApuestas.push(apuesta);
-            alert("Apuesta realizada con exito.");
+            return true;
+            //alert("Apuesta realizada con exito.");
         } else {
             alert("Usted ya ha registrado su apuesta.");
+            return false;
         }
     }
     agregarUsuarioAlGrupo(us, gr){
