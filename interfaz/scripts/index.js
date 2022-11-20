@@ -26,7 +26,19 @@ function inicio(){
   alert(miSistema.listaGrupos[0].getListaIntegrantes());
 }
 
+function mostrarApuestas(){
+  let combo2=document.getElementById("listaApuestas");
+      combo2.innerHTML="";
+      for(let laApuesta of grupoActual.getListaApuestas()){
+        let nodoOp =document.createElement("li");
+        let nodoTexto= document.createTextNode(laApuesta); 
+        nodoOp.appendChild(nodoTexto);
+        combo2.appendChild(nodoOp);
+      }
+}
+
 function mostrarGrupos(){
+  document.getElementById("gruposCreados").innerHTML = "";
   let combo2=document.getElementById("gruposCreados");
       combo2.innerHTML="";
       for(let unG of miSistema.listaGrupos){
@@ -55,6 +67,7 @@ function mostrarGrupo(){
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
     if(miSistema.buscarGrupo(nombreGrupo)){
+      grupoActual = miGrupo;
       document.getElementById('nombreDetalleGrupo').innerHTML = "";
       document.getElementById('idCard2').style.display="block";
       document.getElementById('registradorApuesta').style.display="none";
@@ -69,7 +82,7 @@ function mostrarGrupo(){
       document.getElementById('detallesExtra').innerHTML = "Admin: " + miGrupo.getAdmin() + ". Creado en la fecha: " + miGrupo.getFecha();
       mostrarIntegrantes(miGrupo);
       alert(miGrupo);
-      grupoActual = miGrupo;
+      mostrarApuestas();
       //funcion que ponga los datos de la card
     } else {
       //alert("No hay un grupo con ese nombre.");
