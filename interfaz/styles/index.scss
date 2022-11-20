@@ -139,3 +139,17 @@ section {
   margin-right: auto;
 
 }
+
+@media screen and (min-width: 600px) and (max-width: 992px){
+  body{
+    font-size: larger;
+    height: 80vh;
+  }
+  .miCard{
+    height: 100%; 
+    width: 100%;
+  }
+  .mdc-card__media-content{
+    height: 90vh;
+  }
+}
