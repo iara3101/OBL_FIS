@@ -41,19 +41,14 @@ export default class sistema{
         }
     }
     darEquipo(nombreEquipo){
-        let control = true;
-        let aux = 0;
-        for(let i=0; i<this.listaEquipos.length && control; i++){
+        //let control = true;
+        //let aux = 0;
+        for(let i=0; i<this.listaEquipos.length; i++){
             if(this.listaEquipos[i].getNombreEquipo().toUpperCase() == nombreEquipo.toUpperCase()){
-                control = false;
-                aux = i;
+                return true;
             }
         }
-        if(!control){
-            return this.listaEquipos[aux];
-        } else {
-            alert("No existe un equipo registrado con ese nombre: " + nombreEquipo);
-        }
+        return false;
     }
     darUsuario(id){
         let control = true;
@@ -116,13 +111,13 @@ export default class sistema{
         equipos[0] = "Alemania";
         equipos[1] = "Catar";
         equipos[2] = "Francia";
-        equipos[3] = "Paises Bajos";
-        equipos[4] = "Arabia Saudita";
-        equipos[5] = "Corea del Sur";
+        equipos[3] = "PaisesBajos";
+        equipos[4] = "ArabiaSaudita";
+        equipos[5] = "CoreadelSur";
         equipos[6] = "Gales";
         equipos[7]= "Polonia";
         equipos[8] = "Argentina";
-        equipos[9] = "Costa Rica";
+        equipos[9] = "CostaRica";
         equipos[10] = "Ghana";
         equipos[11] = "Portugal";
         equipos[12] = "Australia";
@@ -138,11 +133,11 @@ export default class sistema{
         equipos[22] = "Japon";
         equipos[23] = "Suiza";
         equipos[24] = "Camerun";
-        equipos[25] = "EspaÃ±a";
+        equipos[25] = "España";
         equipos[26] = "Marruecos";
         equipos[27] = "Tunez";
         equipos[28] = "Canada";
-        equipos[29] = "Estados Unidos";
+        equipos[29] = "EstadosUnidos";
         equipos[30] = "Mexico";
         equipos[31] = "Uruguay";
         for(let i=0; i<equipos.length; i++){
@@ -191,6 +186,9 @@ export default class sistema{
         }
         if(control){
             grupo.listaApuestas.push(apuesta);
+            alert("Apuesta realizada con exito.");
+        } else {
+            alert("Usted ya ha registrado su apuesta.");
         }
     }
     agregarUsuarioAlGrupo(us, gr){
@@ -216,7 +214,11 @@ export default class sistema{
     }
     validarNumero(usId){
             return (parseInt(usId)>0  && parseInt(usId)<=6);
-      }
+    }
+
+    validarMontoApostar(monto){
+        return monto > 0;
+    }
     agregarEquipo(equipo){
         this.listaEquipos.push(equipo);
     }

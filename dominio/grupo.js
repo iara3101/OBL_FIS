@@ -34,5 +34,8 @@ export default class grupo{
     getAdmin(){
         return this.admin;
     }
+    getListaApuestas(){
+        return this.listaApuestas;
+    }
 }
 //module.export = grupo;

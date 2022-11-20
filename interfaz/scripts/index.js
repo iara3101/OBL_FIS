@@ -9,14 +9,18 @@ import {MDCSnackbar} from '@material/snackbar';
 import sistema from '../../dominio/sistema.js';
 import {MDCFormField} from '@material/form-field';
 import {MDCCheckbox} from '@material/checkbox';
+import equipo from '../../dominio/equipo.js';
 
+//const grupoActual = ;
 let miSistema = new sistema();
+var grupoActual = 0;
 window.addEventListener("load", inicio);
 function inicio(){
   console.log("entra");
   miSistema.agregarEquipos();
   miSistema.agregarUsuariosPrueba();
   miSistema.crearGrupoPrueba();
+  //const grupoActual = miSistema.darGrupo("Grupo Prueba");
   miSistema.agregarPosibleIntegrante(miSistema.darUsuario(1));
   mostrarGrupos();
   alert(miSistema.listaGrupos[0].getListaIntegrantes());
@@ -51,15 +55,21 @@ function mostrarGrupo(){
   if(miSistema.validarCampo(nombreGrupo)){
     let miGrupo = miSistema.darGrupo(nombreGrupo);
     if(miSistema.buscarGrupo(nombreGrupo)){
+      document.getElementById('nombreDetalleGrupo').innerHTML = "";
       document.getElementById('idCard2').style.display="block";
       document.getElementById('registradorApuesta').style.display="none";
       document.getElementById('gruposCreados').style.display = "none";
       document.getElementById('seleccionGrupo').style.display = "none";
       document.getElementById('irApuestas').style.display = "block";
-      document.getElementById('nombreDetalleGrupo').innerHTML = miGrupo.getNombreGrupo();
+      //let h2 =document.createElement("h2");
+      let nodoTexto= document.createTextNode(nombreGrupo); 
+      document.getElementById('nombreDetalleGrupo').appendChild(nodoTexto);
+      //document.getElementById('nombreDetalleGrupo').appendChild(h2);
+      //document.getElementById('nombreDetalleGrupo').innerHTML = miGrupo.getNombreGrupo();
       document.getElementById('detallesExtra').innerHTML = "Admin: " + miGrupo.getAdmin() + ". Creado en la fecha: " + miGrupo.getFecha();
       mostrarIntegrantes(miGrupo);
       alert(miGrupo);
+      grupoActual = miGrupo;
       //funcion que ponga los datos de la card
     } else {
       //alert("No hay un grupo con ese nombre.");
@@ -70,12 +80,46 @@ function mostrarGrupo(){
 
 }
 
+document.getElementById('registrarApuesta').addEventListener("click", hacerApuesta);
+function hacerApuesta(){
+  let equipo1 = document.getElementById('equipo1').value;
+  let equipo2 = document.getElementById('equipo2').value;
+  let equipo1Aux = document.getElementById('equipo1').value.trim().toUpperCase();
+  let equipo2Aux = document.getElementById('equipo2').value.trim().toUpperCase();
+  let monto = parseInt(document.getElementById('inputTotalApuesta').value);
+  if(equipo1.length == 0 || equipo2.length == 0){
+    alert("Ingrese dos equipos para apostar");
+  } else {
+    if((miSistema.darEquipo(equipo1Aux)) && (miSistema.darEquipo(equipo2Aux))){
+      if(equipo1Aux == equipo2Aux){
+        alert("Ingrese dos equipos distintos.");
+      } else {
+        if(miSistema.validarMontoApostar(monto)){
+          let apostar = miSistema.crearApuesta(equipo1, equipo2, miSistema.darUsuario(1), monto);
+          miSistema.registrarApuesta(miSistema.darGrupo(grupoActual.getNombreGrupo()), apostar);
+          document.getElementById('equipo1').value = "";
+          document.getElementById('equipo2').value = "";
+          document.getElementById('inputTotalApuesta').value = "";
+        } else {
+          alert("Ingrese un monto a apostar mayor a 0.");
+        }
+      }
+    } else {
+      alert("Ingrese equipos validos.");
+    }
+  }
+}
+
 document.getElementById('botonCancelar2').addEventListener("click", cerrarDetalleGrupo);
 function cerrarDetalleGrupo(){
   document.getElementById('idCard2').style.display="none";
   document.getElementById('registradorApuesta').style.display="none";
   document.getElementById('gruposCreados').style.display = "block";
   document.getElementById('seleccionGrupo').style.display = "block";
+  document.getElementById('equipo1').value = "";
+  document.getElementById('equipo2').value = "";
+  document.getElementById('inputTotalApuesta').value = "";
+  grupoActual = 0;
 }
 
 document.getElementById('irApuestas').addEventListener("click", mostrarApostador)
