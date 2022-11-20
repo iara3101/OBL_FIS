@@ -1,6 +1,6 @@
 const dia = new Date();
-const usuario = require('../dominio/usuario.js');
-const grupo = require('../dominio/grupo.js');
+import usuario from '../dominio/usuario.js';
+import grupo from'../dominio/grupo.js';
 
 let hoy = dia.getDate();
 let usuarioPepe = new usuario("Pepe", 3);

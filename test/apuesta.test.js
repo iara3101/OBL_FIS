@@ -1,6 +1,6 @@
-const usuario = require('../dominio/usuario.js');
-const apuesta = require('../dominio/apuesta.js');
-const equipo = require('../dominio/equipo.js');
+import usuario from '../dominio/usuario.js';
+import apuesta from '../dominio/apuesta.js';
+import equipo from '../dominio/equipo.js';
 const dia = new Date();
 
 let hoy = dia.getDate();
