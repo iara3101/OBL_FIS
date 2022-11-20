@@ -73,6 +73,7 @@ function mostrarGrupo(){
       document.getElementById('idCard2').style.display="block";
       document.getElementById('registradorApuesta').style.display="none";
       document.getElementById('gruposCreados').style.display = "none";
+      document.getElementById('tituloListaGrupos').style.display = "none";
       document.getElementById('seleccionGrupo').style.display = "none";
       document.getElementById('irApuestas').style.display = "block";
       //let h2 =document.createElement("h2");
@@ -131,6 +132,7 @@ document.getElementById('botonCancelar2').addEventListener("click", cerrarDetall
 function cerrarDetalleGrupo(){
   document.getElementById('idCard2').style.display="none";
   document.getElementById('registradorApuesta').style.display="none";
+  document.getElementById('tituloListaGrupos').style.display = "block";
   document.getElementById('gruposCreados').style.display = "block";
   document.getElementById('seleccionGrupo').style.display = "block";
   document.getElementById('equipo1').value = "";
@@ -151,7 +153,7 @@ function hacerDisplay(){
  document.getElementById('idCard').style.display="block";
  document.getElementById('gruposCreados').style.display = "none";
  document.getElementById('seleccionGrupo').style.display = "none";
-
+ document.getElementById('tituloListaGrupos').style.display = "none";
 }
 
 // para dejar de mostrar la card cuando cancela
@@ -163,6 +165,7 @@ function sacarDisplay(){
   document.getElementById('idCard').style.display="none";
   document.getElementById('gruposCreados').style.display = "block";
   document.getElementById('seleccionGrupo').style.display = "block";
+  document.getElementById('tituloListaGrupos').style.display = "block";
 }
 
 //para crear el grupo
@@ -183,6 +186,7 @@ function crearGrupo(){ //hay que acordarse del que no hay checkeos todavia
       mostrarGrupos();
       document.getElementById('gruposCreados').style.display = "block";
       document.getElementById('seleccionGrupo').style.display = "block";
+      document.getElementById('tituloListaGrupos').style.display = "block";
       alert("Grupo creado!!");
    } else {
       document.getElementById("nombreNuevo").value = "";
